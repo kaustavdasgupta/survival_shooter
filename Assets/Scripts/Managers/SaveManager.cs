@@ -4,7 +4,15 @@ public class SaveManager : MonoBehaviour
 {
     public Transform player;
     public PlayerHealth playerHealth;
-    public ScoreManager scoreManager;
+    public static SaveManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Update()
     {

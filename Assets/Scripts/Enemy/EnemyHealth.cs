@@ -75,9 +75,8 @@ public class EnemyHealth : MonoBehaviour
         isSinking = true;
         ScoreManager.score += scoreValue;
 
-        SaveManager saveManager = FindFirstObjectByType<SaveManager>();
-        if (saveManager != null)
-            saveManager.AutoSave();
+        if (SaveManager.Instance != null)
+            SaveManager.Instance.AutoSave();
 
         Destroy (gameObject, 2f);
     }
