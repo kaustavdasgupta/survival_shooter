@@ -16,6 +16,15 @@ public class SaveManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F9))
             SaveSystem.LoadPlayer(player, playerHealth);
     }
+
+    public void AutoSave()
+    {
+        if (Time.timeScale == 0f || playerHealth.CurrentHealth <= 0)
+            return;
+
+        SaveSystem.SavePlayer(player, playerHealth);
+        Debug.Log("Auto Saved");
+    }
 }
 
 

@@ -74,6 +74,11 @@ public class EnemyHealth : MonoBehaviour
         GetComponent <Rigidbody> ().isKinematic = true;
         isSinking = true;
         ScoreManager.score += scoreValue;
+
+        SaveManager saveManager = FindFirstObjectByType<SaveManager>();
+        if (saveManager != null)
+            saveManager.AutoSave();
+
         Destroy (gameObject, 2f);
     }
 }
