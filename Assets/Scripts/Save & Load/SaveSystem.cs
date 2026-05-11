@@ -23,17 +23,26 @@ public class SaveSystem
     {
         if (playerHealth.CurrentHealth <= 0)
             return;
+        
+        ResetEnemies();
 
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
             player.position = data.position;
-            playerHealth.SetHealth((int)data.health);
+            playerHealth.SetHealth(data.health);
 
             ScoreManager.score = data.score;
             Debug.Log("Game Loaded");
         }
+    }
+
+    private static void ResetEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+            Object.Destroy(enemy);
     }
 }
 
