@@ -7,6 +7,9 @@ public class SaveSystem
 
     public static void SavePlayer(Transform player, PlayerHealth playerHealth)
     {
+        if (playerHealth.CurrentHealth <= 0)
+            return;
+
         SaveData data = new SaveData();
         data.position = player.position;
         data.health = playerHealth.CurrentHealth;
@@ -18,6 +21,9 @@ public class SaveSystem
     }
     public static void LoadPlayer(Transform player, PlayerHealth playerHealth)
     {
+        if (playerHealth.CurrentHealth <= 0)
+            return;
+
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
