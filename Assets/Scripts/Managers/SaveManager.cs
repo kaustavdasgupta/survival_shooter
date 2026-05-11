@@ -8,6 +8,9 @@ public class SaveManager : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f)
+            return;
+
         if (Input.GetKeyDown(KeyCode.F5))
             SaveSystem.SavePlayer(player, playerHealth);
         else if (Input.GetKeyDown(KeyCode.F9))
