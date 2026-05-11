@@ -16,6 +16,19 @@ public class SaveSystem
         File.WriteAllText(savePath, json);
         Debug.Log("Game Saved");
     }
+    public static void LoadPlayer(Transform player, PlayerHealth playerHealth)
+    {
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            player.position = data.position;
+            playerHealth.SetHealth((int)data.health);
+
+            ScoreManager.score = data.score;
+            Debug.Log("Game Loaded");
+        }
+    }
 }
 
 

@@ -10,6 +10,8 @@ public class SaveManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
             SaveSystem.SavePlayer(player, playerHealth);
+        else if (Input.GetKeyDown(KeyCode.F9))
+            SaveSystem.LoadPlayer(player, playerHealth);
     }
 }
 
