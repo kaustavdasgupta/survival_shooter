@@ -1374,6 +1374,7 @@ MonoBehaviour:
   player: {fileID: 1925436001}
   playerHealth: {fileID: 643050172}
   continueButton: {fileID: 151799170}
+  HUDCanvas: {fileID: 157448550}
 --- !u!1 &583127488
 GameObject:
   m_ObjectHideFlags: 0
